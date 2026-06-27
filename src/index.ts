@@ -1,19 +1,22 @@
 import http from "node:http";
 
-import {} from "./app/index";
+import { createServerApplication } from "./app/index";
+import { logger } from "./config/logger";
 import { env } from "./env";
 
 async function main() {
     try {
-        const server = http.createServer();
+        const server = http.createServer(createServerApplication());
 
         const PORT: number = env.data.PORT ? +env.data.PORT : 8080;
 
         server.listen(PORT, () => {
-            // log that server is running on port 8080
+            logger.info({ port: PORT }, "HTTP server listening");
         });
     } catch (error) {
-        // log that there was an error in starting the http server
+        logger.error({ err: error }, "Failed to start HTTP server");
         throw error;
     }
 }
+
+main();

@@ -4,33 +4,33 @@ import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default tseslint.config(
-  {
-    ignores: ["dist", "node_modules"],
-  },
-
-  js.configs.recommended,
-
-  ...tseslint.configs.recommended,
-
-  {
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
+    {
+        ignores: ["dist", "node_modules"],
     },
 
-    rules: {
-      "no-console": "warn",
+    js.configs.recommended,
 
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
+    ...tseslint.configs.recommended,
+
+    {
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
         },
-      ],
-    },
-  },
 
-  eslintConfigPrettier,
+        rules: {
+            "no-console": "warn",
+
+            "@typescript-eslint/no-unused-vars": [
+                "warn",
+                {
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
+                },
+            ],
+        },
+    },
+
+    eslintConfigPrettier,
 );

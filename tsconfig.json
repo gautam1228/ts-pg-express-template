@@ -7,7 +7,7 @@
         /* Node.js */
         "module": "ESNext",
         "moduleResolution": "Bundler",
-        "target": "ES2023",
+        "target": "ESNext",
         "types": ["node"],
 
         /* Type Safety */
