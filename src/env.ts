@@ -20,7 +20,7 @@ function createEnv(env: NodeJS.ProcessEnv) {
     }
 
     return {
-        data: result.data,
+        ...result.data,
     };
 }
 

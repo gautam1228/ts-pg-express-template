@@ -8,7 +8,7 @@ async function main() {
     try {
         const server = http.createServer(createServerApplication());
 
-        const PORT: number = env.data.PORT ? +env.data.PORT : 8080;
+        const PORT: number = env.PORT ? +env.PORT : 8080;
 
         server.listen(PORT, () => {
             logger.info({ port: PORT }, "HTTP server listening");
